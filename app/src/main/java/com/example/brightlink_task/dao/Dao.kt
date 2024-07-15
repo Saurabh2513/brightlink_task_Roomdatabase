@@ -1,9 +1,9 @@
 
-package com.coding.meet.todo_app.dao
+package com.example.brightlink_task.dao
 
 import androidx.room.*
 import androidx.room.Dao
-import com.coding.meet.todo_app.models.Task
+import com.example.brightlink_task.model.Task
 import kotlinx.coroutines.flow.Flow
 
 @Dao

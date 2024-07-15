@@ -1,15 +1,15 @@
-package com.coding.meet.todo_app.repository
+package com.example.brightlink_task.repo
 
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.coding.meet.todo_app.database.DataBase
-import com.coding.meet.todo_app.models.Task
-import com.coding.meet.todo_app.utils.Resource
-import com.coding.meet.todo_app.utils.Resource.Error
-import com.coding.meet.todo_app.utils.Resource.Loading
-import com.coding.meet.todo_app.utils.Resource.Success
-import com.coding.meet.todo_app.utils.StatusResult
+import com.example.brightlink_task.model.DataBase
+import com.example.brightlink_task.model.Task
+import com.example.brightlink_task.util.Resource
+import com.example.brightlink_task.util.Resource.Error
+import com.example.brightlink_task.util.Resource.Loading
+import com.example.brightlink_task.util.Resource.Success
+import com.example.brightlink_task.util.StatusResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -23,8 +23,7 @@ class TaskRepository(application: Application) {
 
 
     private val _taskStateFlow = MutableStateFlow<Resource<Flow<List<Task>>>>(Loading())
-    val taskStateFlow: StateFlow<Resource<Flow<List<Task>>>>
-        get() = _taskStateFlow
+    val taskStateFlow: StateFlow<Resource<Flow<List<Task>>>>get() = _taskStateFlow
 
     private val _statusLiveData = MutableLiveData<Resource<StatusResult>>()
     val statusLiveData: LiveData<Resource<StatusResult>>
@@ -71,18 +70,18 @@ class TaskRepository(application: Application) {
         }
     }
 
-    fun deleteTask(task: Task) {
-        try {
-            _statusLiveData.postValue(Loading())
-            CoroutineScope(Dispatchers.IO).launch {
-                val result = taskDao.deleteTask(task)
-                handleResult(result, "Deleted Task Successfully", StatusResult.Deleted)
-
-            }
-        } catch (e: Exception) {
-            _statusLiveData.postValue(Error(e.message.toString()))
-        }
-    }
+//    fun deleteTask(task: Task) {
+//        try {
+//            _statusLiveData.postValue(Loading())
+//            CoroutineScope(Dispatchers.IO).launch {
+//                val result = taskDao.deleteTask(task)
+//                handleResult(result, "Deleted Task Successfully", StatusResult.Deleted)
+//
+//            }
+//        } catch (e: Exception) {
+//            _statusLiveData.postValue(Error(e.message.toString()))
+//        }
+//    }
 
     fun deleteTaskUsingId(taskId: String) {
         try {
@@ -109,17 +108,17 @@ class TaskRepository(application: Application) {
         }
     }
 
-    fun updateTaskPaticularField(taskId: String, title: String, description: String) {
-        try {
-            _statusLiveData.postValue(Loading())
-            CoroutineScope(Dispatchers.IO).launch {
-                val result = taskDao.updateTaskPaticularField(taskId, title, description)
-                handleResult(result, "Updated Task Successfully", StatusResult.Updated)
-            }
-        } catch (e: Exception) {
-            _statusLiveData.postValue(Error(e.message.toString()))
-        }
-    }
+//    fun updateTaskPaticularField(taskId: String, title: String, description: String) {
+//        try {
+//            _statusLiveData.postValue(Loading())
+//            CoroutineScope(Dispatchers.IO).launch {
+//                val result = taskDao.updateTaskPaticularField(taskId, title, description)
+//                handleResult(result, "Updated Task Successfully", StatusResult.Updated)
+//            }
+//        } catch (e: Exception) {
+//            _statusLiveData.postValue(Error(e.message.toString()))
+//        }
+//    }
 
     fun searchTaskList(query: String) {
         CoroutineScope(Dispatchers.IO).launch {

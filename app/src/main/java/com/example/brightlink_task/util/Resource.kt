@@ -1,4 +1,4 @@
-package com.coding.meet.todo_app.utils
+package com.example.brightlink_task.util
 
 sealed class Resource<T>(val status: Status, val data: T? = null, val message: String? = null) {
 

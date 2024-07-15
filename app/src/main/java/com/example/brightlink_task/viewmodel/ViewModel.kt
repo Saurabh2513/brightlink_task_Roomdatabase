@@ -1,9 +1,9 @@
-package com.coding.meet.todo_app.viewmodels
+package com.example.brightlink_task.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import com.coding.meet.todo_app.models.Task
-import com.coding.meet.todo_app.repository.TaskRepository
+import com.example.brightlink_task.model.Task
+import com.example.brightlink_task.repo.TaskRepository
 
 class TaskViewModel(application: Application) : AndroidViewModel(application) {
 

@@ -1,4 +1,4 @@
-package com.coding.meet.todo_app.adapters
+package com.example.brightlink_task.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.coding.meet.todo_app.models.Task
+import com.example.brightlink_task.model.Task
 import com.example.brightlink_task.databinding.ViewGridLayoutBinding
 import com.example.brightlink_task.databinding.ViewListLayoutBinding
 import java.text.SimpleDateFormat
@@ -14,7 +14,9 @@ import java.util.Locale
 
 class TodoAdapter(
     private val isList: MutableLiveData<Boolean>,
-    private val deleteUpdateCallback: (type: String, position: Int, task: Task) -> Unit):ListAdapter<Task,RecyclerView.ViewHolder>(DiffCallback()) {
+    private val deleteUpdateCallback: (type: String, position: Int, task: Task) -> Unit):ListAdapter<Task,RecyclerView.ViewHolder>(
+    DiffCallback()
+) {
 
 
     class ListViewHolder(private val viewListLayoutBinding: ViewListLayoutBinding) :

@@ -1,5 +1,5 @@
 
-package com.coding.meet.todo_app.models
+package com.example.brightlink_task.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

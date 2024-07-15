@@ -1,13 +1,10 @@
-package com.coding.meet.todo_app.database
+package com.example.brightlink_task.model
 
-import android.animation.TypeConverter
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import com.coding.meet.todo_app.dao.Dao
-import com.coding.meet.todo_app.models.Task
+import com.example.brightlink_task.dao.Dao
 
 @Database(
     entities = [Task::class],

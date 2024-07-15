@@ -1,10 +1,13 @@
 import org.jetbrains.kotlin.gradle.internal.kapt.incremental.UnknownSnapshot
 
+
+
 plugins {
 
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     kotlin("kapt")
+    // alias(libs.plugins.kotlin-kept)
 }
 
 android {
@@ -38,12 +41,7 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
-        compose = true
         viewBinding = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.0.1"
-        kotlinCompilerVersion = "1.5.21" // Make sure this version is same as your Kotlin version
     }
 }
 
@@ -54,15 +52,11 @@ dependencies {
     implementation(libs.lottie)
     // Room
     implementation(libs.androidx.room.runtime.v252)
-    // optional - Kotlin Extensions and Coroutines support for Room
     implementation(libs.androidx.room.ktx.v252)
     implementation(libs.androidx.room.room.runtime2)
     implementation(libs.support.annotations)
     implementation(libs.example.artifact)
     kapt(libs.dagger.compiler)
-    //classpath (libs.kotlin.gradle.plugin)
-    // Kotlin Extensions for Room
-    implementation(libs.androidx.room.room.ktx)
     // ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     // LiveData
@@ -72,11 +66,6 @@ dependencies {
     // coroutine
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.kotlinx.coroutines.android)
-
-    implementation("org.example:example-artifact:1.0.0")
-    kapt("com.google.dagger:dagger-compiler:2.38.1")
-
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

@@ -14,7 +14,7 @@ import com.coding.meet.todo_app.models.Task
     version = 1,
     exportSchema = false
 )
-@TypeConverters(TypeConverter::class)
+// @TypeConverters(TypeConverter::class)
 abstract class DataBase : RoomDatabase() {
 
     abstract val dao : Dao

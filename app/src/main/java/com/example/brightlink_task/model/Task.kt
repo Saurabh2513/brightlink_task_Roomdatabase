@@ -6,7 +6,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.Date
 
-@Entity()
+@Entity("task_db")
 data class Task(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "taskId")

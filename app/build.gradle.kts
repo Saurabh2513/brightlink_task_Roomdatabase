@@ -1,8 +1,10 @@
+import org.jetbrains.kotlin.gradle.internal.kapt.incremental.UnknownSnapshot
+
 plugins {
+
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("com.google.devtools.ksp")
-    id("org.jetbrains.kotlin.kapt")
+    kotlin("kapt")
 }
 
 android {
@@ -46,6 +48,8 @@ android {
 }
 
 dependencies {
+
+
     //Lottie
     implementation(libs.lottie)
     // Room
@@ -54,7 +58,9 @@ dependencies {
     implementation(libs.androidx.room.ktx.v252)
     implementation(libs.androidx.room.room.runtime2)
     implementation(libs.support.annotations)
-    kapt(libs.androidx.room.compiler.v250)
+    implementation(libs.example.artifact)
+    kapt(libs.dagger.compiler)
+    //classpath (libs.kotlin.gradle.plugin)
     // Kotlin Extensions for Room
     implementation(libs.androidx.room.room.ktx)
     // ViewModel
@@ -67,6 +73,10 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
+
+    implementation("org.example:example-artifact:1.0.0")
+    kapt("com.google.dagger:dagger-compiler:2.38.1")
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
